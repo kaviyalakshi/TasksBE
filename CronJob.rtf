@@ -1,0 +1,241 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1671
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fnil\fcharset0 Menlo-Bold;\f2\fnil\fcharset0 Menlo-Regular;
+\f3\fnil\fcharset0 Menlo-BoldItalic;\f4\fnil\fcharset0 Menlo-Italic;}
+{\colortbl;\red255\green255\blue255;\red127\green0\blue85;\red100\green100\blue100;\red0\green0\blue192;
+\red42\green0\blue255;\red63\green127\blue95;\red106\green62\blue62;\red0\green128\blue128;\red63\green127\blue127;
+\red127\green0\blue127;\red16\green16\blue16;\red0\green0\blue0;\red42\green161\blue152;}
+{\*\expandedcolortbl;;\csgenericrgb\c49804\c0\c33333;\csgenericrgb\c39216\c39216\c39216;\csgenericrgb\c0\c0\c75294;
+\csgenericrgb\c16471\c0\c100000;\csgenericrgb\c24706\c49804\c37255;\csgenericrgb\c41569\c24314\c24314;\csgenericrgb\c0\c50196\c50196;\csgenericrgb\c24706\c49804\c49804;
+\csgenericrgb\c49804\c0\c49804;\cssrgb\c7679\c7679\c7679;\cssrgb\c0\c0\c0;\csgenericrgb\c16471\c63137\c59608;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 Employee.java\
+\
+\pard\pardeftab720\partightenfactor0
+
+\f1\b\fs22 \cf2 package
+\f2\b0 \cf0  com.pyt.trail;\
+\
+
+\f1\b \cf2 import
+\f2\b0 \cf0  org.springframework.beans.factory.annotation.Value;\
+
+\f1\b \cf2 import
+\f2\b0 \cf0  \ul org.springframework.context.annotation.Conditional\ulnone ;\
+
+\f1\b \cf2 import
+\f2\b0 \cf0  org.springframework.scheduling.annotation.EnableScheduling;\
+
+\f1\b \cf2 import
+\f2\b0 \cf0  org.springframework.scheduling.annotation.Scheduled;\
+\
+ \
+\
+\pard\pardeftab720\partightenfactor0
+\cf3 @EnableScheduling\cf0 \
+\pard\pardeftab720\partightenfactor0
+
+\f1\b \cf2 public
+\f2\b0 \cf0  
+\f1\b \cf2 class
+\f2\b0 \cf0  Employee \{\
+	\
+	
+\f1\b \cf2 public
+\f2\b0 \cf0  Employee()\
+	\{\
+		System.
+\f3\i\b \cf4 out
+\f2\i0\b0 \cf0 .println(\cf5 "inside constructor"\cf0 );\
+	\}\
+		\
+	
+\f1\b \cf2 public
+\f2\b0 \cf0  
+\f1\b \cf2 void
+\f2\b0 \cf0  run () \{\
+		System.
+\f3\i\b \cf4 out
+\f2\i0\b0 \cf0 .println(\cf5 "Works"\cf0 );\
+	\}\
+	\
+	\cf3 @Value\cf0 (\cf5 "$\{jobs.enable\}"\cf0 )\
+	
+\f1\b \cf2 public
+\f2\b0 \cf0  String \cf4 enable\cf0 ;\
+	\cf6 //@Conditional(value = "jobs.enabled")\cf0 \
+	\cf3 @Scheduled\cf0 (cron = \cf5 "0 12 5 1/1 * ?"\cf0 )\
+	
+\f1\b \cf2 public
+\f2\b0 \cf0  
+\f1\b \cf2 void
+\f2\b0 \cf0  scheduleTaskUsingCronExpression() \{\
+		
+\f1\b \cf2 if
+\f2\b0 \cf0 (\cf4 enable\cf0 .equals(\cf5 "true"\cf0 )) \{\
+		\
+	    
+\f1\b \cf2 long
+\f2\b0 \cf0  \cf7 now\cf0  = System.
+\f4\i currentTimeMillis
+\f2\i0 () / 1000;\
+	    System.
+\f3\i\b \cf4 out
+\f2\i0\b0 \cf0 .println(\cf5 "schedule tasks using cron jobs - "\cf0  + \cf7 now\cf0 );\
+		\}\
+	\}\
+\}\
+\
+Main.java\
+\pard\pardeftab720\partightenfactor0
+
+\f1\b\fs24 \cf2 package
+\f2\b0 \cf0  com.pyt.trail;\
+\
+
+\f1\b \cf2 import
+\f2\b0 \cf0  org.springframework.context.support.ClassPathXmlApplicationContext;\
+\
+
+\f1\b \cf2 public
+\f2\b0 \cf0  
+\f1\b \cf2 class
+\f2\b0 \cf0  Main \{\
+	
+\f1\b \cf2 public
+\f2\b0 \cf0  
+\f1\b \cf2 static
+\f2\b0 \cf0  
+\f1\b \cf2 void
+\f2\b0 \cf0  main(String[] \cf7 args\cf0 )\
+	\{\
+		\ul ClassPathXmlApplicationContext\ulnone  \cf7 \ul \ulc7 ctx\cf0 \ulnone =
+\f1\b \cf2 new
+\f2\b0 \cf0  ClassPathXmlApplicationContext(\cf5 "spring.xml"\cf0 );	\
+	\}\
+\}\
+\
+Spring.xml\
+\pard\pardeftab720\partightenfactor0
+\cf8 <?\cf9 xml\cf0  \cf10 version\cf0 =
+\f4\i \cf5 "1.0"
+\f2\i0 \cf0  \cf10 encoding\cf0 =
+\f4\i \cf5 "UTF-8"
+\f2\i0 \cf8 ?>\cf0 \
+\cf8 <\cf9 beans\cf0  \cf10 xmlns\cf0 =
+\f4\i \cf5 "http://www.springframework.org/schema/beans"
+\f2\i0 \cf0 \
+	\cf10 xmlns:xsi\cf0 =
+\f4\i \cf5 "http://www.w3.org/2001/XMLSchema-instance"
+\f2\i0 \cf0 \
+	\cf10 xmlns:context\cf0 =
+\f4\i \cf5 "http://www.springframework.org/schema/context"
+\f2\i0 \cf0 \
+	\cf10 xmlns:task\cf0 =
+\f4\i \cf5 "http://www.springframework.org/schema/task"
+\f2\i0 \cf0 \
+	\cf10 xsi:schemaLocation\cf0 =
+\f4\i \cf5 "http://www.springframework.org/schema/beans 			            
+\f2\i0 \cf0 \
+\pard\pardeftab720\partightenfactor0
+
+\f4\i \cf5         http://www.springframework.org/schema/beans/spring-beans.xsd
+\f2\i0 \cf0 \
+
+\f4\i \cf5         http://www.springframework.org/schema/context
+\f2\i0 \cf0 \
+
+\f4\i \cf5         http://www.springframework.org/schema/context/spring-context.xsd
+\f2\i0 \cf0 \
+
+\f4\i \cf5 		http://www.springframework.org/schema/context
+\f2\i0 \cf0 \
+
+\f4\i \cf5 		http://www.springframework.org/schema/context/springcontext.xsd
+\f2\i0 \cf0 \
+
+\f4\i \cf5 		http://www.springframework.org/schema/task
+\f2\i0 \cf0 \
+
+\f4\i \cf5 		http://www.springframework.org/schema/task/spring-task.xsd"
+\f2\i0 \cf8 >\cf0 \
+\
+\pard\pardeftab720\partightenfactor0
+\cf8 <\cf9 context:component-scan\cf0  \cf10 base-package\cf0 =
+\f4\i \cf5 "com.pyt.trail"
+\f2\i0 \cf0  \cf8 />\cf0 \
+	\cf8 <\cf9 bean\cf0  \cf10 id\cf0 =
+\f4\i \cf5 "e"
+\f2\i0 \cf0  \cf10 name\cf0 =
+\f4\i \cf5 "employee"
+\f2\i0 \cf0 \
+	\cf10 class\cf0 =
+\f4\i \cf5 "com.pyt.trail.Employee"
+\f2\i0 \cf8 >\cf0 \
+	\cf8 </\cf9 bean\cf8 >\cf0 \
+		\cf8 <\cf9 task:scheduler\cf0  \cf10 id\cf0 =
+\f4\i \cf5 "myScheduler"
+\f2\i0 \cf0  \cf10 pool-size\cf0 =
+\f4\i \cf5 "10"
+\f2\i0 \cf0  \cf8 />\cf0 \
+\cf8 <\cf9 task:scheduled-tasks\cf0  \cf10 scheduler\cf0 =
+\f4\i \cf5 "myScheduler"
+\f2\i0 \cf8 >\cf0 \
+    \cf8 <\cf9 task:scheduled\cf0  \cf10 ref\cf0 =
+\f4\i \cf5 "e"
+\f2\i0 \cf0  \cf10 method\cf0 =
+\f4\i \cf5 "scheduleTaskUsingCronExpression"
+\f2\i0 \cf0 \
+      \cf10 cron\cf0 =
+\f4\i \cf5 "*/5 * * * * MON-FRI"
+\f2\i0 \cf0  \cf8 />\cf0 \
+\cf8 </\cf9 task:scheduled-tasks\cf8 >\cf0 \
+	\
+		\
+	\
+	\cf8 <\cf9 bean\cf0  \cf10 id\cf0 =
+\f4\i \cf5 "es"
+\f2\i0 \cf0  \cf10 name\cf0 =
+\f4\i \cf5 "employeeservice"
+\f2\i0 \cf0 \
+		\cf10 class\cf0 =
+\f4\i \cf5 "com.pyt.trail.EmployeeService"
+\f2\i0 \cf0   \cf8 >\cf0 \
+		\
+		\
+	\cf8 </\cf9 bean\cf8 >\cf0 \
+\
+\cf8 </\cf9 beans\cf8 >\
+	\
+\cf11 Pom.xml\cf8 \
+<\cf9 project\cf0  \cf10 xmlns\cf0 =
+\f4\i \cf5 "http://maven.apache.org/POM/4.0.0"
+\f2\i0 \cf0  \cf10 xmlns:xsi\cf0 =
+\f4\i \cf5 "http://www.w3.org/2001/XMLSchema-instance"
+\f2\i0 \cf0  \cf10 xsi:schemaLocation\cf0 =
+\f4\i \cf5 "http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+\f2\i0 \cf8 >\cf0 \
+  \cf8 <\cf9 modelVersion\cf8 >\cf0 4.0.0\cf8 </\cf9 modelVersion\cf8 >\cf0 \
+  \cf8 <\cf9 groupId\cf8 >\cf0 learning\cf8 </\cf9 groupId\cf8 >\cf0 \
+  \cf8 <\cf9 artifactId\cf8 >\cf0 spring\cf8 </\cf9 artifactId\cf8 >\cf0 \
+  \cf8 <\cf9 version\cf8 >\cf0 0.0.1-SNAPSHOT\cf8 </\cf9 version\cf8 >\cf0 \
+ \cf8 <\cf9 dependencies\cf8 >\cf0 \
+ \cf8 <\cf9 dependency\cf8 >\cf0 \
+     \cf8 <\cf9 groupId\cf8 >\cf0 org.springframework\cf8 </\cf9 groupId\cf8 >\cf0 \
+     \cf8 <\cf9 artifactId\cf8 >\cf0 spring-context\cf8 </\cf9 artifactId\cf8 >\cf0 \
+     \cf8 <\cf9 version\cf8 >\cf0 4.0.2.RELEASE\cf8 </\cf9 version\cf8 >\cf0 \
+ \cf8 </\cf9 dependency\cf8 >\cf0 	\
+ \cf8 <\cf9 dependency\cf8 >\cf0 \
+ 	\cf8 <\cf9 groupId\cf8 >\cf0 org.springframework\cf8 </\cf9 groupId\cf8 >\cf0 \
+  \cf8 <\cf9 artifactId\cf8 >\cf0 spring-webmvc\cf8 </\cf9 artifactId\cf8 >\cf0 \
+  \cf8 <\cf9 version\cf8 >\cf0 4.0.2.RELEASE\cf8 </\cf9 version\cf8 >\cf0 \
+  \cf8 </\cf9 dependency\cf8 >\cf0 \
+ \cf8 </\cf9 dependencies\cf8 >\cf0 \
+\cf8 </\cf9 project\cf8 >\
+\
+\cf12 Application.Properties\cf8 \
+\
+\pard\pardeftab720\partightenfactor0
+\cf0 jobs.enabled=\cf13 true;\cf0 \
+}

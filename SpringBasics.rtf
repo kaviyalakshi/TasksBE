@@ -1,0 +1,1076 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1671
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fswiss\fcharset0 Helvetica-Bold;\f2\fnil\fcharset0 Menlo-Regular;
+\f3\fnil\fcharset0 Menlo-Italic;\f4\fnil\fcharset0 Menlo-Bold;\f5\fnil\fcharset0 Menlo-BoldItalic;
+}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;\red14\green110\blue109;\red50\green109\blue108;
+\red106\green0\blue108;\red29\green0\blue255;\red53\green134\blue255;\red106\green0\blue67;\red86\green46\blue47;
+\red0\green0\blue178;}
+{\*\expandedcolortbl;;\cssrgb\c0\c0\c0;\cssrgb\c0\c50196\c50196;\cssrgb\c24706\c49804\c49804;
+\cssrgb\c49804\c0\c49804;\cssrgb\c16471\c0\c100000;\cssrgb\c25490\c61176\c100000;\cssrgb\c49804\c0\c33333;\cssrgb\c41569\c24314\c24314;
+\cssrgb\c0\c0\c75294;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\deftab720
+\pard\pardeftab720\partightenfactor0
+
+\f0\fs24 \cf0 \expnd0\expndtw0\kerning0
+1) byName\
+   	\
+\pard\pardeftab720\partightenfactor0
+
+\f1\b \cf0 spring.xml
+\f0\b0 \
+	\
+\pard\pardeftab720\partightenfactor0
+
+\f2 \cf3 <?\cf4 xml\cf5  version=
+\f3\i \cf6 "1.0"
+\f2\i0 \cf5  encoding=
+\f3\i \cf6 "UTF-8"
+\f2\i0 \cf3 ?>\cf5 \
+\cf3 <\cf4 beans\cf6  \cf5 xmlns\cf6 =
+\f3\i "{\field{\*\fldinst{HYPERLINK "http://www.springframework.org/schema/beans"}}{\fldrslt \cf7 \ul \ulc7 http://www.springframework.org/schema/beans}}"
+\f2\i0 \
+	\cf5 xmlns:xsi\cf6 =
+\f3\i "{\field{\*\fldinst{HYPERLINK "http://www.w3.org/2001/XMLSchema-instance"}}{\fldrslt \cf7 \ul \ulc7 http://www.w3.org/2001/XMLSchema-instance}}"
+\f2\i0 \
+	\cf5 xmlns:context\cf6 =
+\f3\i "{\field{\*\fldinst{HYPERLINK "http://www.springframework.org/schema/context"}}{\fldrslt \cf7 \ul \ulc7 http://www.springframework.org/schema/context}}"
+\f2\i0 \
+	\cf5 xsi:schemaLocation\cf6 =
+\f3\i "{\field{\*\fldinst{HYPERLINK "http://www.springframework.org/schema/beans"}}{\fldrslt \cf7 \ul \ulc7 http://www.springframework.org/schema/beans}} {\field{\*\fldinst{HYPERLINK "http://www.springframework.org/schema/beans/spring-beans.xsd"}}{\fldrslt \cf7 \ul \ulc7 http://www.springframework.org/schema/beans/spring-beans.xsd}}
+\f2\i0 \
+
+\f3\i         {\field{\*\fldinst{HYPERLINK "http://www.springframework.org/schema/context"}}{\fldrslt \cf7 \ul \ulc7 http://www.springframework.org/schema/context}} {\field{\*\fldinst{HYPERLINK "http://www.springframework.org/schema/context/spring-context-4.0.xsd"}}{\fldrslt \cf7 \ul \ulc7 http://www.springframework.org/schema/context/spring-context-4.0.xsd}}"
+\f2\i0 \cf3 >\cf6 \
+\pard\pardeftab720\partightenfactor0
+\cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf6 	\cf3 <\cf4 bean\cf6  \cf5 id\cf6 =
+\f3\i "emp"
+\f2\i0  \cf5 name\cf6 =
+\f3\i "employee"
+\f2\i0  \cf5 class\cf6 =
+\f3\i "com.pyt.trail.Employee"
+\f2\i0 \cf3 >\cf6 \
+		\cf3 <\cf4 property\cf6  \cf5 name\cf6 =
+\f3\i "name"
+\f2\i0  \cf5 value\cf6 =
+\f3\i "kavya"
+\f2\i0 \cf3 >\cf6 \
+\pard\pardeftab720\partightenfactor0
+\cf4 		\cf3 </\cf4 property\cf3 >\cf4 \
+	\cf3 </\cf4 bean\cf3 >\cf4 \
+\pard\pardeftab720\partightenfactor0
+\cf0 	\
+\pard\pardeftab720\partightenfactor0
+\cf6 	\cf3 <\cf4 bean\cf6  \cf5 id\cf6 =
+\f3\i "es"
+\f2\i0  \cf5 name\cf6 =
+\f3\i "employeeservice"
+\f2\i0 \
+		\cf5 class\cf6 =
+\f3\i "com.pyt.trail.EmployeeService"
+\f2\i0  \cf5 autowire\cf6 =
+\f3\i "byName"
+\f2\i0 \cf3 >\cf6 \
+\pard\pardeftab720\partightenfactor0
+\cf4 	\cf3 </\cf4 bean\cf3 >\cf4 \
+\pard\pardeftab720\partightenfactor0
+\cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf3 </\cf4 beans\cf3 >\cf4 \
+\pard\pardeftab720\partightenfactor0
+
+\f0 \cf3 \
+\pard\pardeftab720\partightenfactor0
+
+\f1\b \cf0 Main.java
+\f0\b0 \
+
+\f1\b \
+\pard\pardeftab720\partightenfactor0
+
+\f4 \cf8 package
+\f2\b0 \cf0  com.pyt.trail;\
+\
+
+\f4\b \cf8 import
+\f2\b0 \cf0  org.springframework.context.support.ClassPathXmlApplicationContext;\
+\
+
+\f4\b \cf8 public
+\f2\b0  
+\f4\b class
+\f2\b0  Main \{\
+\pard\pardeftab720\partightenfactor0
+\cf0 	
+\f4\b \cf8 public
+\f2\b0 \cf0  
+\f4\b \cf8 static
+\f2\b0 \cf0  
+\f4\b \cf8 void
+\f2\b0 \cf0  main(String[] \cf9 args\cf0 )\
+	\{\
+		ClassPathXmlApplicationContext \cf9 \ul \ulc9 ctx\cf0 \ulnone =
+\f4\b \cf8 new
+\f2\b0 \cf0  ClassPathXmlApplicationContext(\cf6 "spring.xml"\cf0 );\
+		EmployeeService \cf9 em\cf0 =\cf9 ctx\cf0 .getBean(\cf6 "es"\cf0 ,EmployeeService.
+\f4\b \cf8 class
+\f2\b0 \cf0 );\
+		System.
+\f5\i\b \cf10 out
+\f2\i0\b0 \cf0 .println(\cf6 "Bean value:"\cf0 +\cf9 em\cf0 .getEmp().getName());\
+		\
+		\
+	\}\
+\
+\}\
+\pard\pardeftab720\partightenfactor0
+
+\f0 \cf0 \
+\pard\pardeftab720\partightenfactor0
+
+\f1\b \cf0 Employee.java
+\f0\b0 \
+
+\f1\b \
+\pard\pardeftab720\partightenfactor0
+
+\f4 \cf8 package
+\f2\b0 \cf0  com.pyt.trail;\
+\
+
+\f4\b \cf8 public
+\f2\b0 \cf0  
+\f4\b \cf8 class
+\f2\b0 \cf0  Employee \{\
+	
+\f4\b \cf8 int
+\f2\b0 \cf0  \cf10 id\cf0 ;\
+	String \cf10 name\cf0 ;\
+	
+\f4\b \cf8 public
+\f2\b0 \cf0  String getName() \{\
+\pard\pardeftab720\partightenfactor0
+\cf8 		
+\f4\b return
+\f2\b0  \cf10 name\cf8 ;\
+\pard\pardeftab720\partightenfactor0
+\cf0 	\}\
+	
+\f4\b \cf8 public
+\f2\b0 \cf0  
+\f4\b \cf8 void
+\f2\b0 \cf0  setName(String \cf9 name\cf0 ) \{\
+		
+\f4\b \cf8 this
+\f2\b0 \cf0 .\cf10 name\cf0  = \cf9 name\cf0 ;\
+	\}\
+	\
+	\
+\
+\}\
+\pard\pardeftab720\partightenfactor0
+
+\f0 \cf0 \
+\pard\pardeftab720\partightenfactor0
+
+\f1\b \cf0 EmployeeService.java
+\f0\b0 \
+\
+\pard\pardeftab720\partightenfactor0
+
+\f4\b \cf8 package
+\f2\b0 \cf0  com.pyt.trail;\
+\
+
+\f4\b \cf8 import
+\f2\b0 \cf0  org.springframework.context.support.ClassPathXmlApplicationContext;\
+\
+
+\f4\b \cf8 public
+\f2\b0 \cf0  
+\f4\b \cf8 class
+\f2\b0 \cf0  EmployeeService \{\
+	
+\f4\b \cf8 private
+\f2\b0 \cf0  Employee \cf10 emp\cf0 ;\
+\
+	
+\f4\b \cf8 public
+\f2\b0 \cf0  Employee getEmp() \{\
+\pard\pardeftab720\partightenfactor0
+\cf8 		
+\f4\b return
+\f2\b0  \cf10 emp\cf8 ;\
+\pard\pardeftab720\partightenfactor0
+\cf0 	\}\
+\
+	
+\f4\b \cf8 public
+\f2\b0 \cf0  
+\f4\b \cf8 void
+\f2\b0 \cf0  setEmp(Employee \cf9 emp\cf0 ) \{\
+		
+\f4\b \cf8 this
+\f2\b0 \cf0 .\cf10 emp\cf0  = \cf9 emp\cf0 ;\
+	\}\
+\
+	\
+\}\
+\
+2)byType\
+\
+\pard\pardeftab720\partightenfactor0
+
+\f4\b \cf0 Spring.xml
+\f2\b0 \
+
+\f4\b \
+\pard\pardeftab720\partightenfactor0
+
+\f2\b0 \cf3 <?\cf4 xml\cf5  version=
+\f3\i \cf6 "1.0"
+\f2\i0 \cf5  encoding=
+\f3\i \cf6 "UTF-8"
+\f2\i0 \cf3 ?>\cf5 \
+\cf3 <\cf4 beans\cf6  \cf5 xmlns\cf6 =
+\f3\i "{\field{\*\fldinst{HYPERLINK "http://www.springframework.org/schema/beans"}}{\fldrslt \cf7 \ul \ulc7 http://www.springframework.org/schema/beans}}"
+\f2\i0 \
+	\cf5 xmlns:xsi\cf6 =
+\f3\i "{\field{\*\fldinst{HYPERLINK "http://www.w3.org/2001/XMLSchema-instance"}}{\fldrslt \cf7 \ul \ulc7 http://www.w3.org/2001/XMLSchema-instance}}"
+\f2\i0 \
+	\cf5 xmlns:context\cf6 =
+\f3\i "{\field{\*\fldinst{HYPERLINK "http://www.springframework.org/schema/context"}}{\fldrslt \cf7 \ul \ulc7 http://www.springframework.org/schema/context}}"
+\f2\i0 \
+	\cf5 xsi:schemaLocation\cf6 =
+\f3\i "{\field{\*\fldinst{HYPERLINK "http://www.springframework.org/schema/beans"}}{\fldrslt \cf7 \ul \ulc7 http://www.springframework.org/schema/beans}} {\field{\*\fldinst{HYPERLINK "http://www.springframework.org/schema/beans/spring-beans.xsd"}}{\fldrslt \cf7 \ul \ulc7 http://www.springframework.org/schema/beans/spring-beans.xsd}}
+\f2\i0 \
+
+\f3\i         {\field{\*\fldinst{HYPERLINK "http://www.springframework.org/schema/context"}}{\fldrslt \cf7 \ul \ulc7 http://www.springframework.org/schema/context}} {\field{\*\fldinst{HYPERLINK "http://www.springframework.org/schema/context/spring-context-4.0.xsd"}}{\fldrslt \cf7 \ul \ulc7 http://www.springframework.org/schema/context/spring-context-4.0.xsd}}"
+\f2\i0 \cf3 >\cf6 \
+\pard\pardeftab720\partightenfactor0
+\cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf6 	\cf3 <\cf4 bean\cf6  \cf5 id\cf6 =
+\f3\i "emp"
+\f2\i0  \cf5 name\cf6 =
+\f3\i "employee"
+\f2\i0  \cf5 class\cf6 =
+\f3\i "com.pyt.trail.Employee"
+\f2\i0 \cf3 >\cf6 \
+		\cf3 <\cf4 property\cf6  \cf5 name\cf6 =
+\f3\i "name"
+\f2\i0  \cf5 value\cf6 =
+\f3\i "kavya"
+\f2\i0 \cf3 >\cf6 \
+\pard\pardeftab720\partightenfactor0
+\cf4 		\cf3 </\cf4 property\cf3 >\cf4 \
+	\cf3 </\cf4 bean\cf3 >\cf4 \
+\pard\pardeftab720\partightenfactor0
+\cf0 	\
+\pard\pardeftab720\partightenfactor0
+\cf6 	\cf3 <\cf4 bean\cf6  \cf5 id\cf6 =
+\f3\i "es"
+\f2\i0  \cf5 name\cf6 =
+\f3\i "employeeservice"
+\f2\i0 \
+		\cf5 class\cf6 =
+\f3\i "com.pyt.trail.EmployeeService"
+\f2\i0  \cf5 autowire\cf6 =
+\f3\i "byType"
+\f2\i0 \cf3 >\cf6 \
+\pard\pardeftab720\partightenfactor0
+\cf4 	\cf3 </\cf4 bean\cf3 >\cf4 \
+\pard\pardeftab720\partightenfactor0
+\cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf3 </\cf4 beans\cf3 >\cf4 \
+\cf3 \
+\pard\pardeftab720\partightenfactor0
+
+\f0 \cf0 \
+\pard\pardeftab720\partightenfactor0
+
+\f1\b \cf0 Main.java
+\f0\b0 \
+
+\f1\b \
+\pard\pardeftab720\partightenfactor0
+
+\f4 \cf8 package
+\f2\b0 \cf0  com.pyt.trail;\
+\
+
+\f4\b \cf8 import
+\f2\b0 \cf0  org.springframework.context.support.ClassPathXmlApplicationContext;\
+\
+
+\f4\b \cf8 public
+\f2\b0  
+\f4\b class
+\f2\b0  Main \{\
+\cf0 	
+\f4\b \cf8 public
+\f2\b0 \cf0  
+\f4\b \cf8 static
+\f2\b0 \cf0  
+\f4\b \cf8 void
+\f2\b0 \cf0  main(String[] \cf9 args\cf0 )\
+	\{\
+		ClassPathXmlApplicationContext \cf9 \ul ctx\cf0 \ulnone =
+\f4\b \cf8 new
+\f2\b0 \cf0  ClassPathXmlApplicationContext(\cf6 "spring.xml"\cf0 );\
+		EmployeeService \cf9 em\cf0 =\cf9 ctx\cf0 .getBean(\cf6 "es"\cf0 ,EmployeeService.
+\f4\b \cf8 class
+\f2\b0 \cf0 );\
+		System.
+\f5\i\b \cf10 out
+\f2\i0\b0 \cf0 .println(\cf6 "Bean value:"\cf0 +\cf9 em\cf0 .getEmp().getName());\
+		\
+		\
+	\}\
+\
+\}\
+\pard\pardeftab720\partightenfactor0
+
+\f0 \cf0 \
+\pard\pardeftab720\partightenfactor0
+
+\f1\b \cf0 Employee.java
+\f0\b0 \
+
+\f1\b \
+\pard\pardeftab720\partightenfactor0
+
+\f4 \cf8 package
+\f2\b0 \cf0  com.pyt.trail;\
+\
+
+\f4\b \cf8 public
+\f2\b0 \cf0  
+\f4\b \cf8 class
+\f2\b0 \cf0  Employee \{\
+	
+\f4\b \cf8 int
+\f2\b0 \cf0  \cf10 id\cf0 ;\
+	String \cf10 name\cf0 ;\
+	
+\f4\b \cf8 public
+\f2\b0 \cf0  String getName() \{\
+\pard\pardeftab720\partightenfactor0
+\cf8 		
+\f4\b return
+\f2\b0  \cf10 name\cf8 ;\
+\pard\pardeftab720\partightenfactor0
+\cf0 	\}\
+	
+\f4\b \cf8 public
+\f2\b0 \cf0  
+\f4\b \cf8 void
+\f2\b0 \cf0  setName(String \cf9 name\cf0 ) \{\
+		
+\f4\b \cf8 this
+\f2\b0 \cf0 .\cf10 name\cf0  = \cf9 name\cf0 ;\
+	\}\
+	\
+	\
+\
+\}\
+\pard\pardeftab720\partightenfactor0
+
+\f0 \cf0 \
+\pard\pardeftab720\partightenfactor0
+
+\f1\b \cf0 EmployeeService.java
+\f0\b0 \
+\
+\pard\pardeftab720\partightenfactor0
+
+\f4\b \cf8 package
+\f2\b0 \cf0  com.pyt.trail;\
+\
+
+\f4\b \cf8 import
+\f2\b0 \cf0  org.springframework.context.support.ClassPathXmlApplicationContext;\
+\
+
+\f4\b \cf8 public
+\f2\b0 \cf0  
+\f4\b \cf8 class
+\f2\b0 \cf0  EmployeeService \{\
+	
+\f4\b \cf8 private
+\f2\b0 \cf0  Employee \cf10 emp\cf0 ;\
+\
+	
+\f4\b \cf8 public
+\f2\b0 \cf0  Employee getEmp() \{\
+\pard\pardeftab720\partightenfactor0
+\cf8 		
+\f4\b return
+\f2\b0  \cf10 emp\cf8 ;\
+\pard\pardeftab720\partightenfactor0
+\cf0 	\}\
+\
+	
+\f4\b \cf8 public
+\f2\b0 \cf0  
+\f4\b \cf8 void
+\f2\b0 \cf0  setEmp(Employee \cf9 emp\cf0 ) \{\
+		
+\f4\b \cf8 this
+\f2\b0 \cf0 .\cf10 emp\cf0  = \cf9 emp\cf0 ;\
+	\}\
+\
+	\
+\}\
+\
+3)byConstructor\
+\
+\pard\pardeftab720\partightenfactor0
+
+\f4\b \cf0 Spring.xml
+\f2\b0 \
+
+\f4\b \
+\pard\pardeftab720\partightenfactor0
+
+\f2\b0 \cf3 <?\cf4 xml\cf5  version=
+\f3\i \cf6 "1.0"
+\f2\i0 \cf5  encoding=
+\f3\i \cf6 "UTF-8"
+\f2\i0 \cf3 ?>\cf5 \
+\cf3 <\cf4 beans\cf6  \cf5 xmlns\cf6 =
+\f3\i "{\field{\*\fldinst{HYPERLINK "http://www.springframework.org/schema/beans"}}{\fldrslt \cf7 \ul \ulc7 http://www.springframework.org/schema/beans}}"
+\f2\i0 \
+	\cf5 xmlns:xsi\cf6 =
+\f3\i "{\field{\*\fldinst{HYPERLINK "http://www.w3.org/2001/XMLSchema-instance"}}{\fldrslt \cf7 \ul \ulc7 http://www.w3.org/2001/XMLSchema-instance}}"
+\f2\i0 \
+	\cf5 xmlns:context\cf6 =
+\f3\i "{\field{\*\fldinst{HYPERLINK "http://www.springframework.org/schema/context"}}{\fldrslt \cf7 \ul \ulc7 http://www.springframework.org/schema/context}}"
+\f2\i0 \
+	\cf5 xsi:schemaLocation\cf6 =
+\f3\i "{\field{\*\fldinst{HYPERLINK "http://www.springframework.org/schema/beans"}}{\fldrslt \cf7 \ul \ulc7 http://www.springframework.org/schema/beans}} {\field{\*\fldinst{HYPERLINK "http://www.springframework.org/schema/beans/spring-beans.xsd"}}{\fldrslt \cf7 \ul \ulc7 http://www.springframework.org/schema/beans/spring-beans.xsd}}
+\f2\i0 \
+
+\f3\i         {\field{\*\fldinst{HYPERLINK "http://www.springframework.org/schema/context"}}{\fldrslt \cf7 \ul \ulc7 http://www.springframework.org/schema/context}} {\field{\*\fldinst{HYPERLINK "http://www.springframework.org/schema/context/spring-context-4.0.xsd"}}{\fldrslt \cf7 \ul \ulc7 http://www.springframework.org/schema/context/spring-context-4.0.xsd}}"
+\f2\i0 \cf3 >\cf6 \
+\pard\pardeftab720\partightenfactor0
+\cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf6 	\cf3 <\cf4 bean\cf6  \cf5 id\cf6 =
+\f3\i "emp"
+\f2\i0  \cf5 name\cf6 =
+\f3\i "employee"
+\f2\i0  \cf5 class\cf6 =
+\f3\i "com.pyt.trail.Employee"
+\f2\i0 \cf3 >\cf6 \
+\pard\pardeftab720\partightenfactor0
+\cf0 		\
+\pard\pardeftab720\partightenfactor0
+\cf4 	\cf3 </\cf4 bean\cf3 >\cf4 \
+\pard\pardeftab720\partightenfactor0
+\cf0 	\
+\pard\pardeftab720\partightenfactor0
+\cf6 	\cf3 <\cf4 bean\cf6  \cf5 id\cf6 =
+\f3\i "es"
+\f2\i0  \cf5 name\cf6 =
+\f3\i "employeeservice"
+\f2\i0 \
+		\cf5 class\cf6 =
+\f3\i "com.pyt.trail.EmployeeService"
+\f2\i0  \cf5 autowire\cf6 =
+\f3\i "constructor"
+\f2\i0  \cf3 >\cf6 \
+		\cf3 <\cf4 property\cf6  \cf5 name\cf6 =
+\f3\i "name"
+\f2\i0  \cf5 value\cf6 =
+\f3\i "kavya"
+\f2\i0 \cf3 >\cf6 \
+\pard\pardeftab720\partightenfactor0
+\cf4 		\cf3 </\cf4 property\cf3 >\cf4 \
+	\cf3 </\cf4 bean\cf3 >\cf4 \
+\pard\pardeftab720\partightenfactor0
+\cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf3 </\cf4 beans\cf3 >\cf4 \
+\cf3 \
+\pard\pardeftab720\partightenfactor0
+
+\f0 \cf0 \
+\pard\pardeftab720\partightenfactor0
+
+\f1\b \cf0 Main.java
+\f0\b0 \
+\
+\pard\pardeftab720\partightenfactor0
+
+\f4\b \cf8 package
+\f2\b0 \cf0  com.pyt.trail;\
+\
+
+\f4\b \cf8 import
+\f2\b0 \cf0  org.springframework.context.support.ClassPathXmlApplicationContext;\
+\
+
+\f4\b \cf8 public
+\f2\b0  
+\f4\b class
+\f2\b0  Main \{\
+\cf0 	
+\f4\b \cf8 public
+\f2\b0 \cf0  
+\f4\b \cf8 static
+\f2\b0 \cf0  
+\f4\b \cf8 void
+\f2\b0 \cf0  main(String[] \cf9 args\cf0 )\
+	\{\
+		ClassPathXmlApplicationContext \cf9 \ul ctx\cf0 \ulnone =
+\f4\b \cf8 new
+\f2\b0 \cf0  ClassPathXmlApplicationContext(\cf6 "spring.xml"\cf0 );\
+		EmployeeService \cf9 em\cf0 =\cf9 ctx\cf0 .getBean(\cf6 "es"\cf0 ,EmployeeService.
+\f4\b \cf8 class
+\f2\b0 \cf0 );\
+		\cf9 em\cf0 .getinfo();\
+		\
+		\
+		\
+	\}\
+	\
+\
+\}\
+\
+\pard\pardeftab720\partightenfactor0
+
+\f4\b \cf0 Employee.java
+\f2\b0 \
+\pard\pardeftab720\partightenfactor0
+
+\f0 \cf0 \
+\pard\pardeftab720\partightenfactor0
+
+\f4\b \cf8 package
+\f2\b0 \cf0  com.pyt.trail;\
+\
+
+\f4\b \cf8 public
+\f2\b0 \cf0  
+\f4\b \cf8 class
+\f2\b0 \cf0  Employee \{\
+	
+\f4\b \cf8 public
+\f2\b0 \cf0  Employee()\
+	\{\
+		System.
+\f5\i\b \cf10 out
+\f2\i0\b0 \cf0 .println(\cf6 "inside constructor"\cf0 );\
+	\}\
+	
+\f4\b \cf8 public
+\f2\b0 \cf0  
+\f4\b \cf8 void
+\f2\b0 \cf0  empfun()\
+	\{\
+		System.
+\f5\i\b \cf10 out
+\f2\i0\b0 \cf0 .println(\cf6 "inside function"\cf0 );\
+	\}\
+\
+\}\
+\pard\pardeftab720\partightenfactor0
+
+\f0 \cf0 \
+\pard\pardeftab720\partightenfactor0
+
+\f1\b \cf0 EmployeeService.java
+\f0\b0 \
+
+\f1\b \
+\pard\pardeftab720\partightenfactor0
+
+\f4 \cf8 package
+\f2\b0 \cf0  com.pyt.trail;\
+\
+
+\f4\b \cf8 import
+\f2\b0 \cf0  \ul org.springframework.context.support.ClassPathXmlApplicationContext\ulnone ;\
+\
+
+\f4\b \cf8 public
+\f2\b0 \cf0  
+\f4\b \cf8 class
+\f2\b0 \cf0  EmployeeService \{\
+	
+\f4\b \cf8 private
+\f2\b0 \cf0  Employee \cf10 emp\cf0 ;\
+	String \cf10 name\cf0 ;\
+	
+\f4\b \cf8 public
+\f2\b0 \cf0  String getName()\
+	\{\
+\pard\pardeftab720\partightenfactor0
+\cf8 		
+\f4\b return
+\f2\b0  \cf10 name\cf8 ;\
+\pard\pardeftab720\partightenfactor0
+\cf0 	\}\
+	\
+	
+\f4\b \cf8 public
+\f2\b0 \cf0  
+\f4\b \cf8 void
+\f2\b0 \cf0  setName(String \cf9 name\cf0 ) \{\
+		
+\f4\b \cf8 this
+\f2\b0 \cf0 .\cf10 name\cf0  = \cf9 name\cf0 ;\
+	\}\
+\
+	
+\f4\b \cf8 public
+\f2\b0 \cf0  EmployeeService(Employee \cf9 emp\cf0 ) \{\
+		
+\f4\b \cf8 this
+\f2\b0 \cf0 .\cf10 emp\cf0  = \cf9 emp\cf0 ;\
+	\}\
+	
+\f4\b \cf8 public
+\f2\b0 \cf0  
+\f4\b \cf8 void
+\f2\b0 \cf0  getinfo() \{\
+	      \cf10 emp\cf0 .empfun();\
+	  \}\
+\
+	\
+\}\
+\
+\
+\pard\pardeftab720\partightenfactor0
+
+\f0 \cf0 \
+4)Setter Injection \
+\
+\pard\pardeftab720\partightenfactor0
+
+\f1\b \cf0 Spring.xml
+\f0\b0 \
+\
+\pard\pardeftab720\partightenfactor0
+
+\f2 \cf3 <?\cf4 xml\cf5  version=
+\f3\i \cf6 "1.0"
+\f2\i0 \cf5  encoding=
+\f3\i \cf6 "UTF-8"
+\f2\i0 \cf3 ?>\cf5 \
+\cf3 <\cf4 beans\cf6  \cf5 xmlns\cf6 =
+\f3\i "{\field{\*\fldinst{HYPERLINK "http://www.springframework.org/schema/beans"}}{\fldrslt \cf7 \ul \ulc7 http://www.springframework.org/schema/beans}}"
+\f2\i0 \
+	\cf5 xmlns:xsi\cf6 =
+\f3\i "{\field{\*\fldinst{HYPERLINK "http://www.w3.org/2001/XMLSchema-instance"}}{\fldrslt \cf7 \ul \ulc7 http://www.w3.org/2001/XMLSchema-instance}}"
+\f2\i0 \
+	\cf5 xmlns:context\cf6 =
+\f3\i "{\field{\*\fldinst{HYPERLINK "http://www.springframework.org/schema/context"}}{\fldrslt \cf7 \ul \ulc7 http://www.springframework.org/schema/context}}"
+\f2\i0 \
+	\cf5 xsi:schemaLocation\cf6 =
+\f3\i "{\field{\*\fldinst{HYPERLINK "http://www.springframework.org/schema/beans"}}{\fldrslt \cf7 \ul \ulc7 http://www.springframework.org/schema/beans}} {\field{\*\fldinst{HYPERLINK "http://www.springframework.org/schema/beans/spring-beans.xsd"}}{\fldrslt \cf7 \ul \ulc7 http://www.springframework.org/schema/beans/spring-beans.xsd}}
+\f2\i0 \
+
+\f3\i         {\field{\*\fldinst{HYPERLINK "http://www.springframework.org/schema/context"}}{\fldrslt \cf7 \ul \ulc7 http://www.springframework.org/schema/context}} {\field{\*\fldinst{HYPERLINK "http://www.springframework.org/schema/context/spring-context-4.0.xsd"}}{\fldrslt \cf7 \ul \ulc7 http://www.springframework.org/schema/context/spring-context-4.0.xsd}}"
+\f2\i0 \cf3 >\cf6 \
+\pard\pardeftab720\partightenfactor0
+\cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf6 	\cf3 <\cf4 bean\cf6  \cf5 id\cf6 =
+\f3\i "emp"
+\f2\i0  \cf5 name\cf6 =
+\f3\i "employee"
+\f2\i0  \cf5 class\cf6 =
+\f3\i "com.pyt.trail.Employee"
+\f2\i0 \cf3 >\cf6 \
+\pard\pardeftab720\partightenfactor0
+\cf4 	\cf3 <\cf4 property \cf5 name\cf4 =
+\f3\i \cf6 "name"
+\f2\i0 \cf4  \cf5 value\cf4 =
+\f3\i \cf6 "kavya"
+\f2\i0 \cf3 ></\cf4 property\cf3 >\cf4 \
+	\cf3 <\cf4 property \cf5 name\cf4 =
+\f3\i \cf6 "id"
+\f2\i0 \cf4  \cf5 value\cf4 =
+\f3\i \cf6 "1"
+\f2\i0 \cf3 ></\cf4 property\cf3 >\cf4 \
+	\cf3 <\cf4 property \cf5 name\cf4 =
+\f3\i \cf6 "age"
+\f2\i0 \cf4  \cf5 value\cf4 =
+\f3\i \cf6 "23"
+\f2\i0 \cf3 ></\cf4 property\cf3 >\cf4 \
+\pard\pardeftab720\partightenfactor0
+\cf0 		\
+\pard\pardeftab720\partightenfactor0
+\cf4 	\cf3 </\cf4 bean\cf3 >\cf4 \
+\pard\pardeftab720\partightenfactor0
+\cf0 	\
+\pard\pardeftab720\partightenfactor0
+\cf6 	\cf3 <\cf4 bean\cf6  \cf5 id\cf6 =
+\f3\i "es"
+\f2\i0  \cf5 name\cf6 =
+\f3\i "employeeservice"
+\f2\i0 \
+		\cf5 class\cf6 =
+\f3\i "com.pyt.trail.EmployeeService"
+\f2\i0   \cf3 >\cf6 \
+\pard\pardeftab720\partightenfactor0
+\cf0 		\
+		\
+\pard\pardeftab720\partightenfactor0
+\cf4 	\cf3 </\cf4 bean\cf3 >\cf4 \
+\pard\pardeftab720\partightenfactor0
+\cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf3 </\cf4 beans\cf3 >\cf4 \
+\pard\pardeftab720\partightenfactor0
+
+\f0 \cf3 \
+\pard\pardeftab720\partightenfactor0
+\cf0 \
+\pard\pardeftab720\partightenfactor0
+
+\f1\b \cf0 Employee.java
+\f0\b0 \
+
+\f1\b \
+\pard\pardeftab720\partightenfactor0
+
+\f4 \cf8 package
+\f2\b0 \cf0  com.pyt.trail;\
+\
+
+\f4\b \cf8 public
+\f2\b0 \cf0  
+\f4\b \cf8 class
+\f2\b0 \cf0  Employee \{\
+	
+\f4\b \cf8 int
+\f2\b0 \cf0  \cf10 id\cf0 ;\
+	String \cf10 name\cf0 ;\
+	
+\f4\b \cf8 int
+\f2\b0 \cf0  \cf10 age\cf0 ;\
+	
+\f4\b \cf8 public
+\f2\b0 \cf0  
+\f4\b \cf8 int
+\f2\b0 \cf0  getId() \{\
+\pard\pardeftab720\partightenfactor0
+\cf8 		
+\f4\b return
+\f2\b0  \cf10 id\cf8 ;\
+\pard\pardeftab720\partightenfactor0
+\cf0 	\}\
+	
+\f4\b \cf8 public
+\f2\b0 \cf0  
+\f4\b \cf8 void
+\f2\b0 \cf0  setId(
+\f4\b \cf8 int
+\f2\b0 \cf0  \cf9 id\cf0 ) \{\
+		{\field{\*\fldinst{HYPERLINK "http://this.id/"}}{\fldrslt 
+\f4\b \cf7 \ul \ulc7 this
+\f2\b0 .id}} = \cf9 id\cf0 ;\
+	\}\
+	
+\f4\b \cf8 public
+\f2\b0 \cf0  String getName() \{\
+\pard\pardeftab720\partightenfactor0
+\cf8 		
+\f4\b return
+\f2\b0  \cf10 name\cf8 ;\
+\pard\pardeftab720\partightenfactor0
+\cf0 	\}\
+	
+\f4\b \cf8 public
+\f2\b0 \cf0  
+\f4\b \cf8 void
+\f2\b0 \cf0  setName(String \cf9 name\cf0 ) \{\
+		
+\f4\b \cf8 this
+\f2\b0 \cf0 .\cf10 name\cf0  = \cf9 name\cf0 ;\
+	\}\
+	
+\f4\b \cf8 public
+\f2\b0 \cf0  
+\f4\b \cf8 int
+\f2\b0 \cf0  getAge() \{\
+\pard\pardeftab720\partightenfactor0
+\cf8 		
+\f4\b return
+\f2\b0  \cf10 age\cf8 ;\
+\pard\pardeftab720\partightenfactor0
+\cf0 	\}\
+	
+\f4\b \cf8 public
+\f2\b0 \cf0  
+\f4\b \cf8 void
+\f2\b0 \cf0  setAge(
+\f4\b \cf8 int
+\f2\b0 \cf0  \cf9 age\cf0 ) \{\
+		
+\f4\b \cf8 this
+\f2\b0 \cf0 .\cf10 age\cf0  = \cf9 age\cf0 ;\
+	\}\
+	
+\f4\b \cf8 public
+\f2\b0 \cf0  
+\f4\b \cf8 void
+\f2\b0 \cf0  display()\
+	\{\
+		System.
+\f5\i\b \cf10 out
+\f2\i0\b0 \cf0 .println(\cf6 "name "\cf0 +\cf10 name\cf0 +\cf6 " id "\cf0 +\cf10 id\cf0 +\cf6 " age "\cf0 +\cf10 age\cf0 );\
+	\}\
+\
+\}\
+\
+\pard\pardeftab720\partightenfactor0
+
+\f4\b \cf0 Main.java
+\f2\b0 \
+\
+\pard\pardeftab720\partightenfactor0
+
+\f4\b \cf8 package
+\f2\b0 \cf0  com.pyt.trail;\
+\
+
+\f4\b \cf8 import
+\f2\b0 \cf0  org.springframework.context.support.ClassPathXmlApplicationContext;\
+\
+
+\f4\b \cf8 public
+\f2\b0  
+\f4\b class
+\f2\b0  Main \{\
+\cf0 	
+\f4\b \cf8 public
+\f2\b0 \cf0  
+\f4\b \cf8 static
+\f2\b0 \cf0  
+\f4\b \cf8 void
+\f2\b0 \cf0  main(String[] \cf9 args\cf0 )\
+	\{\
+		ClassPathXmlApplicationContext \cf9 \ul ctx\cf0 \ulnone =
+\f4\b \cf8 new
+\f2\b0 \cf0  ClassPathXmlApplicationContext(\cf6 "spring.xml"\cf0 );\
+		Employee \cf9 em\cf0 =\cf9 ctx\cf0 .getBean(\cf6 "emp"\cf0 ,Employee.
+\f4\b \cf8 class
+\f2\b0 \cf0 );\
+		\cf9 em\cf0 .display();\
+		\
+		\
+		\
+	\}\
+	\
+\
+\}\
+\
+\
+5)Constructor Injection\
+\pard\pardeftab720\partightenfactor0
+
+\f0 \cf0 \
+\pard\pardeftab720\partightenfactor0
+
+\f1\b \cf0 Spring.xml
+\f0\b0 \
+
+\f1\b \
+\pard\pardeftab720\partightenfactor0
+
+\f2\b0 \cf3 <?\cf4 xml\cf5  version=
+\f3\i \cf6 "1.0"
+\f2\i0 \cf5  encoding=
+\f3\i \cf6 "UTF-8"
+\f2\i0 \cf3 ?>\cf5 \
+\cf3 <\cf4 beans\cf6  \cf5 xmlns\cf6 =
+\f3\i "{\field{\*\fldinst{HYPERLINK "http://www.springframework.org/schema/beans"}}{\fldrslt \cf7 \ul \ulc7 http://www.springframework.org/schema/beans}}"
+\f2\i0 \
+	\cf5 xmlns:xsi\cf6 =
+\f3\i "{\field{\*\fldinst{HYPERLINK "http://www.w3.org/2001/XMLSchema-instance"}}{\fldrslt \cf7 \ul \ulc7 http://www.w3.org/2001/XMLSchema-instance}}"
+\f2\i0 \
+	\cf5 xmlns:context\cf6 =
+\f3\i "{\field{\*\fldinst{HYPERLINK "http://www.springframework.org/schema/context"}}{\fldrslt \cf7 \ul \ulc7 http://www.springframework.org/schema/context}}"
+\f2\i0 \
+	\cf5 xsi:schemaLocation\cf6 =
+\f3\i "{\field{\*\fldinst{HYPERLINK "http://www.springframework.org/schema/beans"}}{\fldrslt \cf7 \ul \ulc7 http://www.springframework.org/schema/beans}} {\field{\*\fldinst{HYPERLINK "http://www.springframework.org/schema/beans/spring-beans.xsd"}}{\fldrslt \cf7 \ul \ulc7 http://www.springframework.org/schema/beans/spring-beans.xsd}}
+\f2\i0 \
+
+\f3\i         {\field{\*\fldinst{HYPERLINK "http://www.springframework.org/schema/context"}}{\fldrslt \cf7 \ul \ulc7 http://www.springframework.org/schema/context}} {\field{\*\fldinst{HYPERLINK "http://www.springframework.org/schema/context/spring-context-4.0.xsd"}}{\fldrslt \cf7 \ul \ulc7 http://www.springframework.org/schema/context/spring-context-4.0.xsd}}"
+\f2\i0 \cf3 >\cf6 \
+\pard\pardeftab720\partightenfactor0
+\cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf6 	\cf3 <\cf4 bean\cf6  \cf5 id\cf6 =
+\f3\i "emp"
+\f2\i0  \cf5 name\cf6 =
+\f3\i "employee"
+\f2\i0  \cf5 class\cf6 =
+\f3\i "com.pyt.trail.Employee"
+\f2\i0 \cf3 >\cf6 \
+\pard\pardeftab720\partightenfactor0
+\cf4 	\cf3 <\cf4 constructor-arg \cf5 value\cf4 =
+\f3\i \cf6 "10"
+\f2\i0 \cf4  \cf5 type\cf4 =
+\f3\i \cf6 "int"
+\f2\i0 \cf3 ></\cf4 constructor-arg\cf3 >\cf4   \
+	\cf3 <\cf4 constructor-arg \cf5 value\cf4 =
+\f3\i \cf6 "kavya"
+\f2\i0 \cf4  \cf5 type\cf4 =
+\f3\i \cf6 "String"
+\f2\i0 \cf3 ></\cf4 constructor-arg\cf3 >\cf4   \
+\pard\pardeftab720\partightenfactor0
+\cf0 		\
+\pard\pardeftab720\partightenfactor0
+\cf4 	\cf3 </\cf4 bean\cf3 >\cf4 \
+\pard\pardeftab720\partightenfactor0
+\cf0 	\
+\pard\pardeftab720\partightenfactor0
+\cf6 	\cf3 <\cf4 bean\cf6  \cf5 id\cf6 =
+\f3\i "es"
+\f2\i0  \cf5 name\cf6 =
+\f3\i "employeeservice"
+\f2\i0 \
+		\cf5 class\cf6 =
+\f3\i "com.pyt.trail.EmployeeService"
+\f2\i0   \cf3 >\cf6 \
+\pard\pardeftab720\partightenfactor0
+\cf0 		\
+		\
+\pard\pardeftab720\partightenfactor0
+\cf4 	\cf3 </\cf4 bean\cf3 >\cf4 \
+\pard\pardeftab720\partightenfactor0
+\cf0 \
+\pard\pardeftab720\partightenfactor0
+\cf3 </\cf4 beans\cf3 >\cf4 \
+\
+\pard\pardeftab720\partightenfactor0
+
+\f4\b \cf0 Employee.java
+\f2\b0 \
+
+\f4\b \
+\pard\pardeftab720\partightenfactor0
+\cf8 package
+\f2\b0 \cf0  com.pyt.trail;\
+\
+
+\f4\b \cf8 public
+\f2\b0 \cf0  
+\f4\b \cf8 class
+\f2\b0 \cf0  Employee \{\
+\pard\pardeftab720\partightenfactor0
+\cf8 	
+\f4\b private
+\f2\b0  
+\f4\b int
+\f2\b0  \cf10 id\cf8 ;\
+\pard\pardeftab720\partightenfactor0
+\cf0 	
+\f4\b \cf8 private
+\f2\b0 \cf0  String \cf10 name\cf0 ;\
+	\
+	
+\f4\b \cf8 public
+\f2\b0 \cf0  Employee()\
+	\{\
+		System.
+\f5\i\b \cf10 out
+\f2\i0\b0 \cf0 .println(\cf6 "inside constructor"\cf0 );\
+	\}\
+	\
+	
+\f4\b \cf8 public
+\f2\b0 \cf0  Employee(
+\f4\b \cf8 int
+\f2\b0 \cf0  \cf9 id\cf0 ) \{\
+		\
+		{\field{\*\fldinst{HYPERLINK "http://this.id/"}}{\fldrslt 
+\f4\b \cf7 \ul \ulc7 this
+\f2\b0 .id}} = \cf9 id\cf0 ;\
+	\}\
+	
+\f4\b \cf8 public
+\f2\b0 \cf0  Employee(String \cf9 name\cf0 ) \{\
+		\
+		
+\f4\b \cf8 this
+\f2\b0 \cf0 .\cf10 name\cf0  = \cf9 name\cf0 ;\
+	\}\
+\
+\
+\
+	
+\f4\b \cf8 public
+\f2\b0 \cf0  Employee(
+\f4\b \cf8 int
+\f2\b0 \cf0  \cf9 id\cf0 , String \cf9 name\cf0 ) \{\
+		\
+		{\field{\*\fldinst{HYPERLINK "http://this.id/"}}{\fldrslt 
+\f4\b \cf7 \ul \ulc7 this
+\f2\b0 .id}} = \cf9 id\cf0 ;\
+		
+\f4\b \cf8 this
+\f2\b0 \cf0 .\cf10 name\cf0  = \cf9 name\cf0 ;\
+		\
+	\}\
+\
+	
+\f4\b \cf8 public
+\f2\b0 \cf0  
+\f4\b \cf8 void
+\f2\b0 \cf0  display()\
+	\{\
+		System.
+\f5\i\b \cf10 out
+\f2\i0\b0 \cf0 .println(\cf6 "name "\cf0 +\cf10 name\cf0 +\cf6 " id "\cf0 +\cf10 id\cf0 );\
+	\}\
+\
+\
+\}\
+\
+\
+\pard\pardeftab720\partightenfactor0
+
+\f4\b \cf0 Main.java
+\f2\b0 \
+
+\f4\b \
+\pard\pardeftab720\partightenfactor0
+\cf8 package
+\f2\b0 \cf0  com.pyt.trail;\
+\
+
+\f4\b \cf8 import
+\f2\b0 \cf0  org.springframework.context.support.ClassPathXmlApplicationContext;\
+\
+
+\f4\b \cf8 public
+\f2\b0  
+\f4\b class
+\f2\b0  Main \{\
+\cf0 	
+\f4\b \cf8 public
+\f2\b0 \cf0  
+\f4\b \cf8 static
+\f2\b0 \cf0  
+\f4\b \cf8 void
+\f2\b0 \cf0  main(String[] \cf9 args\cf0 )\
+	\{\
+		ClassPathXmlApplicationContext \cf9 \ul ctx\cf0 \ulnone =
+\f4\b \cf8 new
+\f2\b0 \cf0  ClassPathXmlApplicationContext(\cf6 "spring.xml"\cf0 );\
+		Employee \cf9 em\cf0 =\cf9 ctx\cf0 .getBean(\cf6 "emp"\cf0 ,Employee.
+\f4\b \cf8 class
+\f2\b0 \cf0 );\
+		\cf9 em\cf0 .display();\
+	\
+	\}\
+\}}
